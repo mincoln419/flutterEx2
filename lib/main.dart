@@ -5,46 +5,45 @@ void main() {
     home: Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Study to Container'),
+        title: Text('Widget을 상하로 배치하기'),
       ),
-      body: CustomContainer(),
+      body: Body(),
     ),
   ));
 }
 
-class CustomContainer extends StatelessWidget {
-  const CustomContainer({super.key});
+class Body extends StatelessWidget {
+  const Body({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        width: 300,
-        height: 300,
-        padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-        margin: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
-        decoration: BoxDecoration(
-            color: Color(0xFFCEF6A9),
-            border: Border.all(
-                color: Colors.red, width: 5, style: BorderStyle.solid),
-            borderRadius: BorderRadius.circular(100),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.3),
-                offset: Offset(6, 6),
-                blurRadius: 10,
-                spreadRadius: 10
-              ),
-              BoxShadow(
-                  color: Colors.blue.withOpacity(0.3),
-                  offset: Offset(-6, -6),
-                  blurRadius: 10,
-                  spreadRadius: 10
-              )
-            ]),
-        child: Center(
-            child: Container(
-                color: Color(0xFFF3EABC), child: Text('Hello Container'))),
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+///        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: 100,
+            height: 80,
+            color: Colors.red,
+            child: Text('Cont ainer1'),
+          ),
+          Container(
+            width: 100,
+            height: 80,
+            color: Colors.blue,
+            child: Text('Container2'),
+          ),
+          Container(
+            width: 100,
+            height: 80,
+            color: Colors.green,
+            child: Text('Container2'),
+          ),
+        ],
       ),
     );
   }
