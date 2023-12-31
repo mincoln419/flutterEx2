@@ -6,14 +6,7 @@ void main() {
   runApp(
     MaterialApp.router(
       theme: ThemeData(
-        colorScheme: const ColorScheme.light(
-          primary: Colors.indigo,
-          secondary: Colors.green,
-          tertiary: Colors.yellow,
-        ),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.redAccent
-        )
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo)
       ),
       routerConfig: GoRouter(
         routes: [
