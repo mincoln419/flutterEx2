@@ -19,7 +19,7 @@ class CustomContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: [
       ExampleStateLess(),
-      ExampleStateful(),
+      ExampleStateful(index : 3),
     ]);
   }
 }
@@ -39,14 +39,30 @@ class ExampleStateLess extends StatelessWidget {
 }
 
 class ExampleStateful extends StatefulWidget {
-  const ExampleStateful({super.key});
-
+  const ExampleStateful({required this.index, super.key});
+  final int index;
   @override
   State<ExampleStateful> createState() => _ExampleStatefulState();
 }
 
 class _ExampleStatefulState extends State<ExampleStateful> {
-  int index = 0;
+
+  late TextEditingController textEditingController;
+  late int _index;
+  @override
+  void initState() {
+    super.initState();
+    textEditingController= TextEditingController();
+    _index = widget.index;
+  }
+
+  @override
+  void dispose() {
+
+    textEditingController.dispose();
+    super.dispose();
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,19 +71,19 @@ class _ExampleStatefulState extends State<ExampleStateful> {
       child: GestureDetector(
         onTap: () {
           setState(() {
-            if (index == 5) {
-              index = 0;
+            if (_index == 5) {
+              _index = 0;
               return;
             }
-            index++;
-            print('$index');
+            _index++;
+            print('$_index');
           });
         },
         child: Container(
-            color: Colors.blue.withOpacity(index/5),
+            color: Colors.blue.withOpacity(_index/5),
             child: Center(
                 child: Text(
-              '$index',
+              '$_index',
               style: TextStyle(fontSize: 40),
             ))),
       ),
