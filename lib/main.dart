@@ -1,3 +1,4 @@
+import 'package:demo_flutter/screen/new_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,6 +18,15 @@ class CustomContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Center(
+      child: TextButton(
+        child: Text('Go Page'),
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return const NewPage();
+          },),);
+        },
+      ),
+    );
   }
 }
