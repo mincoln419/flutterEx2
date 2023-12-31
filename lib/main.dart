@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
 
+import 'body/game_body.dart';
+
 void main() {
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('Study to Container'),
-      ),
-      body: CustomContainer(),
-    ),
-  ));
+  runApp(const RPSWidget());
 }
 
-class CustomContainer extends StatelessWidget {
-  const CustomContainer({super.key});
+class RPSWidget extends StatelessWidget {
+  const RPSWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text('가위 바위 보'),
+        ),
+        body: const GameBody(),
+      ),
+    );
   }
 }
+
+
+
