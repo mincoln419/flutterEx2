@@ -5,6 +5,16 @@ import 'package:go_router/go_router.dart';
 void main() {
   runApp(
     MaterialApp.router(
+      theme: ThemeData(
+        colorScheme: const ColorScheme.light(
+          primary: Colors.indigo,
+          secondary: Colors.green,
+          tertiary: Colors.yellow,
+        ),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.redAccent
+        )
+      ),
       routerConfig: GoRouter(
         routes: [
           GoRoute(path: '/', name: 'home', builder: (context, _) => HomeWidget()),
