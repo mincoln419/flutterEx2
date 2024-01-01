@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 
 class CPUInput extends StatefulWidget {
-  const CPUInput({super.key});
+  const CPUInput({required this.isDone, super.key});
+
+  final bool isDone;
 
   @override
   State<CPUInput> createState() => _CPUInputState();

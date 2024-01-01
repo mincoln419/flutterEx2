@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 
 class GameResult extends StatefulWidget {
-  const GameResult({super.key});
+  const GameResult({required this.isDone, super.key});
+
+  final bool isDone;
 
   @override
   State<GameResult> createState() => _GameResultState();
