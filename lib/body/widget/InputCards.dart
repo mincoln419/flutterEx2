@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import '../../data/play_case.dart';
 
 class InputCards extends StatelessWidget {
-  final VoidCallback? callback;
-  const InputCards({
+  final Function(PlayCase)? callback;
+  InputCards({
     this.callback, super.key,
   });
 
@@ -18,7 +18,7 @@ class InputCards extends StatelessWidget {
   List<Widget> _getInputs() {
     return PlayCase.values
         .map((type) => Expanded(child: InkWell(
-        onTap: callback,
+        onTap: () => callback?.call(type),
         child: InputContent(type: type))))
         .toList();
   }

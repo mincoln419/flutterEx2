@@ -1,4 +1,5 @@
 import 'package:demo_flutter/body/user_input.dart';
+import 'package:demo_flutter/data/play_case.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'cpu_input.dart';
@@ -14,6 +15,8 @@ class GameBody extends StatefulWidget {
 class _GameBodyState extends State<GameBody> {
 
   late bool isDone;
+  late PlayCase? _userInput;
+
 
   @override
   void initState() {
@@ -27,9 +30,18 @@ class _GameBodyState extends State<GameBody> {
       children: [
         Expanded(child: CPUInput(isDone: isDone)),
         Expanded(child: GameResult(isDone: isDone)),
-        Expanded(child: UserInput(isDone: isDone)),
+        Expanded(child: UserInput(isDone: isDone, callback: setPlayCase,)),
 
       ],
     );
+  }
+
+  void setPlayCase(PlayCase userInput){
+    setState(() {
+      isDone = true;
+      _userInput = userInput;
+      print('user input : $_userInput');
+      print('game finish');
+    });
   }
 }
