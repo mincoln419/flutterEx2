@@ -5,8 +5,10 @@ import '../../data/play_case.dart';
 
 class InputCards extends StatelessWidget {
   final Function(PlayCase)? callback;
+
   InputCards({
-    this.callback, super.key,
+    this.callback,
+    super.key,
   });
 
   @override
@@ -15,21 +17,26 @@ class InputCards extends StatelessWidget {
       children: _getInputs(),
     );
   }
+
   List<Widget> _getInputs() {
     return PlayCase.values
-        .map((type) => Expanded(child: InkWell(
-        onTap: () => callback?.call(type),
-        child: InputContent(type: type))))
+        .map((type) => Expanded(
+            child: InkWell(
+                onTap: () => callback?.call(type),
+                child: InputContent(child: Image.asset(type.path)))
+    )
+    )
         .toList();
   }
 }
 
 class InputContent extends StatelessWidget {
-  final PlayCase type;
+
+  final Widget child;
 
   const InputContent({
     super.key,
-    required this.type,
+    required this.child,
   });
 
   @override
@@ -41,6 +48,6 @@ class InputContent extends StatelessWidget {
           borderRadius: BorderRadius.circular(24),
           border: Border.all(color: Colors.indigo, width: 8),
         ),
-        child: Image.asset(type.path));
+        child: child);
   }
 }

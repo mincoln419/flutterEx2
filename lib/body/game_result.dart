@@ -1,17 +1,20 @@
 import 'package:flutter/cupertino.dart';
 
-class GameResult extends StatefulWidget {
-  const GameResult({required this.isDone, super.key});
-
+class GameResult extends StatelessWidget {
   final bool isDone;
 
-  @override
-  State<GameResult> createState() => _GameResultState();
-}
+  const GameResult({required this.isDone, super.key});
 
-class _GameResultState extends State<GameResult> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    if (isDone) {
+      return const Placeholder();
+    }
+    return const Center(
+      child: Text(
+        '가위, 바위, 보 중 하나를 선택해주세요.',
+        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      ),
+    );
   }
 }
