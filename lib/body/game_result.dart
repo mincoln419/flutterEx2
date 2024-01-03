@@ -1,9 +1,12 @@
+import 'package:demo_flutter/data/play_case.dart';
 import 'package:flutter/cupertino.dart';
 
 class GameResult extends StatelessWidget {
   final bool isDone;
 
-  const GameResult({required this.isDone, super.key});
+  final ResultEnum? result;
+
+  const GameResult({required this.isDone, this.result, super.key});
 
   @override
   Widget build(BuildContext context) {

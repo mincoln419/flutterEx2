@@ -17,7 +17,7 @@ class GameBody extends StatefulWidget {
 class _GameBodyState extends State<GameBody> {
 
   late bool isDone;
-  late PlayCase? _userInput;
+  PlayCase? _userInput;
   late PlayCase _cpuInput;
 
 
@@ -33,8 +33,8 @@ class _GameBodyState extends State<GameBody> {
     return Column(
       children: [
         Expanded(child: CPUInput(isDone: isDone, cpuInput: _cpuInput)),
-        Expanded(child: GameResult(isDone: isDone)),
-        Expanded(child: UserInput(isDone: isDone, callback: setPlayCase,)),
+        Expanded(child: GameResult(isDone: isDone, result: getResult())),
+        Expanded(child: UserInput(isDone: isDone, callback: setPlayCase, userInput: _userInput,)),
 
       ],
     );
@@ -53,4 +53,9 @@ class _GameBodyState extends State<GameBody> {
     final random = Random();
     _cpuInput = PlayCase.values[random.nextInt(3)];
   }
+  ResultEnum? getResult() {
+  return null;
+  }
 }
+
+
