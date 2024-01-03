@@ -1,6 +1,8 @@
 import 'package:demo_flutter/screen/new_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MaterialApp.router(
@@ -21,8 +23,8 @@ final customTheme = ThemeData(
       fontWeight: FontWeight.bold,
       fontSize: 40,
     )),
-    colorScheme:
-        const ColorScheme.light(primary: Colors.white, secondary: Colors.black));
+    colorScheme: const ColorScheme.light(
+        primary: Colors.white, secondary: Colors.black));
 
 class HomeWidget extends StatelessWidget {
   const HomeWidget({super.key});
@@ -31,7 +33,18 @@ class HomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text('Instagram', style: GoogleFonts.lobsterTwo(fontSize: 32)),
+        centerTitle: false,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.favorite_outline),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: Icon(CupertinoIcons.paperplane),
+            onPressed: () {},
+          )
+        ],
       ),
       body: Center(
         child: TextButton(
