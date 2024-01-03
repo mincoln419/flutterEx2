@@ -21,7 +21,8 @@ final customTheme = ThemeData(
       fontWeight: FontWeight.bold,
       fontSize: 40,
     )),
-    colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo));
+    colorScheme:
+        const ColorScheme.light(primary: Colors.white, secondary: Colors.black));
 
 class HomeWidget extends StatelessWidget {
   const HomeWidget({super.key});
