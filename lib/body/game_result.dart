@@ -1,17 +1,31 @@
 import 'package:demo_flutter/data/play_case.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class GameResult extends StatelessWidget {
   final bool isDone;
 
   final ResultEnum? result;
 
-  const GameResult({required this.isDone, this.result, super.key});
+  final VoidCallback callback;
+
+  const GameResult({required this.isDone, this.result, required this.callback, super.key});
 
   @override
   Widget build(BuildContext context) {
     if (isDone) {
-      return const Placeholder();
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+              child: Text(
+                      result!.displayString,
+                      style: const TextStyle(fontSize: 40),
+                    )),
+          SizedBox(height: 8),
+          TextButton(onPressed: () => callback.call(), child: Text('다시 하기', style: TextStyle(fontWeight:FontWeight.bold, color: Colors.indigo, fontSize: 24),),)
+        ],
+      );
     }
     return const Center(
       child: Text(
