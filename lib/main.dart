@@ -52,7 +52,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: index == 0 ? AppBar(
         title: Text('Instagram', style: GoogleFonts.lobsterTwo(fontSize: 32)),
         centerTitle: false,
         actions: [
@@ -65,7 +65,7 @@ class _HomeWidgetState extends State<HomeWidget> {
             onPressed: () {},
           )
         ],
-      ),
+      ): null,
       body: InstagramBody(index: index),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: index,
